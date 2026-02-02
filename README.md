@@ -1,4 +1,3 @@
-```markdown
 # D&D RAG System
 
 A Retrieval-Augmented Generation (RAG) system for querying D&D rulebooks, adventures, and homebrew content using local LLMs with LM Studio.
