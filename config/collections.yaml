@@ -1,0 +1,79 @@
+# Collection definitions for RAG system
+
+collections:
+  dnd_core_rules:
+    name: "dnd_core_rules"
+    description: "D&D 5e Core Rulebooks"
+    source_path: "/Volumes/corsair4tb/Users/stephan/docker/rag_collections/dnd/core_rules"
+    metadata:
+      type: "rules"
+      game: "dnd5e"
+      category: "core"
+    chunk_size: 1000
+    chunk_overlap: 200
+    file_patterns: ["*.pdf", "*.txt", "*.md"]
+
+  dnd_curse_of_strahd:
+    name: "dnd_curse_of_strahd"
+    description: "Curse of Strahd Adventure + Materials"
+    source_path: "/Volumes/corsair4tb/Users/stephan/docker/rag_collections/dnd/curse_of_strahd"
+    metadata:
+      type: "adventure"
+      game: "dnd5e"
+      campaign: "Curse of Strahd"
+    chunk_size: 1000
+    chunk_overlap: 200
+    file_patterns: ["*.pdf", "*.txt", "*.md"]
+
+  dnd_tomb_of_annihilation:
+    name: "dnd_tomb_of_annihilation"
+    description: "Tomb of Annihilation Adventure + Materials"
+    source_path: "/Volumes/corsair4tb/Users/stephan/docker/rag_collections/dnd/tomb_of_annihilation"
+    metadata:
+      type: "adventure"
+      game: "dnd5e"
+      campaign: "Tomb of Annihilation"
+    chunk_size: 1000
+    chunk_overlap: 200
+    file_patterns: ["*.pdf", "*.txt", "*.md"]
+
+  dnd_ghosts_of_saltmarsh:
+    name: "dnd_ghosts_of_saltmarsh"
+    description: "Ghosts of Saltmarsh Adventure + Materials"
+    source_path: "/Volumes/corsair4tb/Users/stephan/docker/rag_collections/dnd/ghosts_of_saltmarsh"
+    metadata:
+      type: "adventure"
+      game: "dnd5e"
+      campaign: "Ghosts of Saltmarsh"
+    chunk_size: 1000
+    chunk_overlap: 200
+    file_patterns: ["*.pdf", "*.txt", "*.md"]
+
+  dnd_homebrew:
+    name: "dnd_homebrew"
+    description: "Custom homebrew content"
+    source_path: "/Volumes/corsair4tb/Users/stephan/docker/rag_collections/dnd/homebrew"
+    metadata:
+      type: "homebrew"
+      game: "dnd5e"
+      category: "custom"
+    chunk_size: 1000
+    chunk_overlap: 200
+    file_patterns: ["*.pdf", "*.txt", "*.md", "*.docx"]
+
+# Global settings
+settings:
+  embedding_model: "BAAI/bge-large-en-v1.5"
+  embedding_device: "mps"  # Use Metal on Mac, cpu in Docker
+  vector_dimension: 1024
+  distance_metric: "cosine"
+  batch_size: 100
+  
+  # Incremental processing
+  track_processed_files: true
+  state_file: "/Volumes/corsair4tb/Users/stephan/docker/rag_state/processed_files.json"
+  
+  # Watch mode (optional)
+  watch_mode: false
+  watch_interval: 60  # seconds
+
